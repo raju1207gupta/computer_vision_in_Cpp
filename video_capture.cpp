@@ -16,19 +16,20 @@ int main(int argc, char** argv) {
 
     cv::Mat image,image_gray,image_blur,image_Canny,image_dilate,image_erode,imgcrop;
     
-    const string path_to_video = "path_to_video_link";
+    const string path_to_video = "E:/deeplearning_stuff/new_usecase/BIAL_new_video/reject/(1) 693 SBD XRAY IN FEED WCT 0010 CAM 2-2021-05-11_06h33min20s000ms.mp4";
     
     cv::VideoCapture video(path_to_video);
     
     
-    while (true)
+    while (video.isOpened())
     {
-        if (!video.open(path_to_video))
-        {
-            cout << "No image data for the stream provided";
-            break;
-        }
-        video >> image;
+        // if (!video.open(path_to_video))
+        // {
+        //     cout << "No image data for the stream provided";
+        //     break;
+        // }
+        //video >> image;
+        video.read(image);
         
         cv::resize(image,image,cv::Size(1280,720));
         //cv::resize(image,image,cv::Size(),0.75,0.75,cv::INTER_AREA);
